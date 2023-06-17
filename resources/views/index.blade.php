@@ -28,6 +28,7 @@
                 </div>
             @endforeach
         </div>
+
         <div class="mb-10">
             {{ $posts->links() }}
         </div>
