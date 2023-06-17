@@ -9,20 +9,29 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Mi botón
-    </button>
+<body class="bg-gray-100 text-gray-700">
+    <div class="container mx-auto px-4">
+        <h1 class="text-3xl font-bold">
+            Posts
+        </h1>
 
-    @foreach ($posts as $post)
-        <div>
-            <h2>{{ $post->title }}</h2>
+        <div class="grid grid-cols-3 my-10">
+            @foreach ($posts as $post)
+                <div class="bg-white hover:bg-blue-100 border border-gray-200 p-5">
+                    <h2 class="font-bold text-lg mb-4">
+                        {{ $post->title }}
+                    </h2>
+                    <p class="text-xs">{{ $post->excerpt }}</p>
+                    <p class="text-xs text-right" title="{{ $post->published_at }}">
+                        {{ $post->created_at->diffForHumans() }}
+                    </p>
+                </div>
+            @endforeach
         </div>
-    @endforeach
-    {{ $posts->links() }}
+        <div class="mb-10">
+            {{ $posts->links() }}
+        </div>
+    </div>
 </body>
 
 </html>
