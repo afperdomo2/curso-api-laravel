@@ -18,4 +18,9 @@ class Post extends Model
     {
         return $this->created_at->format("d/M/Y");
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
