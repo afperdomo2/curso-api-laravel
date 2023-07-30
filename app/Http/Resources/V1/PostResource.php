@@ -6,6 +6,10 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
 {
+    /**
+     * Sirve para quitar el envoltorio de 'data', cuando solo
+     * hay un registro. Por ejemplo, cuando se usa el 'show'
+     */
     public static $wrap = null;
 
     /**
